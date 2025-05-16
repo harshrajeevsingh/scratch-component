@@ -1,6 +1,7 @@
 import { useDropdownContext } from "./context/DropdownContext";
 
-export function DropdownTrigger({ children }) {
+// Should add support for svg icon too in futute
+export function DropdownTrigger({ children }: { children: string }) {
   const { toggleOpen, open } = useDropdownContext();
 
   return (

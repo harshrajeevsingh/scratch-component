@@ -6,7 +6,7 @@ const sources = [
   "https://images.pexels.com/photos/162829/squirrel-sciurus-vulgaris-major-mammal-mindfulness-162829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 ];
 
-function Image({ source }) {
+function Image({ source }: { source: string }) {
   return (
     <div className="image-item">
       <img src={source} alt="Squirrel" />

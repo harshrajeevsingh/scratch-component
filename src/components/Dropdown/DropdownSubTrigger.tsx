@@ -10,9 +10,10 @@ export function DropdownSubTrigger({
     <li
       role="menuitem"
       tabIndex={0}
+      //   onClick={() => toggleOpen((prev) => !prev)}
       onMouseEnter={() => toggleOpen(true)}
       onMouseLeave={() => toggleOpen(false)}
-      className="flyout-btn"
+      className="flyout-item dropdown-sub-trigger"
     >
       {children}
     </li>

@@ -6,5 +6,5 @@ export function DropdownSubContent({
   children: React.ReactNode;
 }) {
   const { open } = useDropdownSubContext();
-  return open ? <ul className="flyout-list">{children}</ul> : null;
+  return open ? <ul className="dropdown-sub-content">{children}</ul> : null;
 }
