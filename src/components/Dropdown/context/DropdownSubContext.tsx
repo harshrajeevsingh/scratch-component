@@ -1,9 +1,6 @@
 import { createContext, useContext } from "react";
+import type { DropdownSubContextType } from "../types";
 
-type DropdownSubContextType = {
-  open: boolean;
-  toggleOpen: (value: boolean) => void;
-};
 export const DropdownSubContext = createContext<DropdownSubContextType | null>(
   null
 );

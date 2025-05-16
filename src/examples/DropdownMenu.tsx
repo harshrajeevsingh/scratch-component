@@ -2,21 +2,29 @@ import { useState } from "react";
 import Dropdown from "../components/Dropdown";
 
 export default function DropdownMenu() {
-  //   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   function handleEdit() {
     console.log("Editing btn clicked");
   }
 
   return (
-    <Dropdown>
+    <Dropdown open={isOpen} onOpenChange={setIsOpen}>
       <Dropdown.Trigger>+</Dropdown.Trigger>
       <Dropdown.Content>
-        <Dropdown.Item>Edit</Dropdown.Item>
+        <Dropdown.Item onClick={handleEdit}>Edit</Dropdown.Item>
         <Dropdown.Sub>
           <Dropdown.SubTrigger>Advanced Edit</Dropdown.SubTrigger>
           <Dropdown.SubContent>
+            <Dropdown.Sub>
+              <Dropdown.SubTrigger>Color</Dropdown.SubTrigger>
+              <Dropdown.SubContent>
+                <Dropdown.Item>Edit BgColor</Dropdown.Item>
+                <Dropdown.Item>Edit TxtColor</Dropdown.Item>
+              </Dropdown.SubContent>
+            </Dropdown.Sub>
             <Dropdown.Item>Edit Image</Dropdown.Item>
+
             <Dropdown.Item>Edit Title</Dropdown.Item>
           </Dropdown.SubContent>
         </Dropdown.Sub>
