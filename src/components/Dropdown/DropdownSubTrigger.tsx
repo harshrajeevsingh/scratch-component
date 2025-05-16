@@ -1,3 +1,4 @@
+import useHoverInstinct from "../../hooks/useHoverIntinct";
 import { useDropdownSubContext } from "./context/DropdownSubContext";
 
 export function DropdownSubTrigger({
@@ -5,14 +6,19 @@ export function DropdownSubTrigger({
 }: {
   children: React.ReactNode;
 }) {
-  const { toggleOpen } = useDropdownSubContext();
+  const { triggerRef, contentRef, toggleOpen } = useDropdownSubContext();
+
+  const { handleMouseLeave } = useHoverInstinct({
+    triggerRef,
+    contentRef,
+    onHoverLeave: () => toggleOpen(false),
+  });
   return (
     <li
+      onMouseEnter={() => toggleOpen(true)}
+      onMouseLeave={handleMouseLeave}
       role="menuitem"
       tabIndex={0}
-      //   onClick={() => toggleOpen((prev) => !prev)}
-      onMouseEnter={() => toggleOpen(true)}
-      onMouseLeave={() => toggleOpen(false)}
       className="flyout-item dropdown-sub-trigger"
     >
       {children}

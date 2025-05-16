@@ -1,11 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  cloneElement,
-  isValidElement,
-  Children,
-} from "react";
+import { useState } from "react";
 import { DropdownContext } from "./context/DropdownContext";
 import type { DropdownProps } from "./types";
 
@@ -20,7 +13,11 @@ export default function DropdownRoot({
 
   const toggleOpen = (value: boolean | ((prev: boolean) => boolean)) => {
     const newVal = typeof value === "function" ? value(open) : value;
-    isControlled ? onOpenChange?.(newVal) : setUncontrolledOpen(newVal);
+    if (isControlled && onOpenChange) {
+      onOpenChange(newVal);
+    } else {
+      setUncontrolledOpen(newVal);
+    }
   };
 
   return (

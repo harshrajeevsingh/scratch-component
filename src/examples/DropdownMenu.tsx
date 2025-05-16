@@ -16,7 +16,15 @@ export default function DropdownMenu() {
         <Dropdown.Sub>
           <Dropdown.SubTrigger>Advanced Edit</Dropdown.SubTrigger>
           <Dropdown.SubContent>
+            <Dropdown.Sub>
+              <Dropdown.SubTrigger>Color</Dropdown.SubTrigger>
+              <Dropdown.SubContent>
+                <Dropdown.Item>Edit BgColor</Dropdown.Item>
+                <Dropdown.Item>Edit TxtColor</Dropdown.Item>
+              </Dropdown.SubContent>
+            </Dropdown.Sub>
             <Dropdown.Item>Edit Image</Dropdown.Item>
+
             <Dropdown.Item>Edit Title</Dropdown.Item>
           </Dropdown.SubContent>
         </Dropdown.Sub>

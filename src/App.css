@@ -42,7 +42,7 @@ body {
   right: 0px;
   padding: 0px;
   width: 150px;
-
+  z-index: 9999; /* kind of a hack, should fix later*/
   background-color: #292929;
   box-shadow: 3px 3px 4px #141414;
 }
