@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { DropdownContext } from "./context/DropdownContext";
 import type { DropdownProps } from "./types";
 
@@ -7,7 +7,10 @@ export default function DropdownRoot({
   open: controlledOpen,
   onOpenChange,
 }: DropdownProps) {
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLUListElement>(null);
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+
   const isControlled = controlledOpen !== undefined;
   const open = isControlled ? controlledOpen : uncontrolledOpen;
 
@@ -22,7 +25,9 @@ export default function DropdownRoot({
 
   return (
     <div className="flyout">
-      <DropdownContext.Provider value={{ open, toggleOpen }}>
+      <DropdownContext.Provider
+        value={{ open, toggleOpen, triggerRef, contentRef }}
+      >
         {children}
       </DropdownContext.Provider>
     </div>
